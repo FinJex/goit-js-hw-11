@@ -14,13 +14,24 @@ form.addEventListener(`submit`, (e) => {
     const query = data.get(`search-text`);
     if (!query.trim()) return;
     clearGallery();
-       //  showLoader();
-    api.getImagesByQuery(query)
-    .then(images => {render.createGallery(images)
+    showLoader();
+     api.getImagesByQuery(query)
+    .then(images =>  { 
+                if (images.length === 0) {
+    iziToast.error({
+      message: "Sorry, there are no images matching your search query. Please try again!",
+      position: "topRight"
+    });
+  }render.createGallery(images)
       form.reset();
     })
-    .catch(err => {
-    console.error("Error fetching images:", err);
+  .catch(err => {
+
+  })
+  .finally(() => {
+    hideLoader(); 
   });
-});
-hideLoader();
+  });
+
+
+

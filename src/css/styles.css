@@ -9,15 +9,18 @@
 @import url('./base.css');
 
 .loader {
-    width: 48px;
-    height: 48px;
+    width: 500px;
+    height: 500px;
     border: 5px solid #FFF;
     border-bottom-color: #FF3D00;
     border-radius: 50%;
     display: inline-block;
     box-sizing: border-box;
     animation: rotation 1s linear infinite;
-    }
+
+  margin: 100px auto; 
+  display: block;
+}
 
     @keyframes rotation {
     0% {

@@ -1,11 +1,15 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 const gallery = document.querySelector(`.gallery`);
+
 export function createGallery(images) {
 gallery.insertAdjacentHTML(`beforeend`, images.map(itemTemplate).join(''));
+new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+}); 
 }
-
-
+ 
 function itemTemplate(item) {
 return ` <li class="gallery-item">
         <a class="gallery-link" href="${item.largeImageURL}">
@@ -41,7 +45,7 @@ return ` <li class="gallery-item">
          </ul>
       </li>`;
 }
-
+const loader = document.querySelector(".loader");
 export function clearGallery() {
 gallery.innerHTML = "";
 }
@@ -53,3 +57,4 @@ loader.classList.remove(`hidden`);
 export function hideLoader() {
 loader.classList.add(`hidden`);
 }
+
