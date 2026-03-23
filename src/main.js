@@ -21,8 +21,9 @@ form.addEventListener(`submit`, (e) => {
     iziToast.error({
       message: "Sorry, there are no images matching your search query. Please try again!",
       position: "topRight"
-    });
-  }render.createGallery(images)
+    }); return;
+  }; 
+  render.createGallery(images);
       form.reset();
     })
   .catch(err => {
