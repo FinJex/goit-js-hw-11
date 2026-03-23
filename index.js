@@ -30,5 +30,5 @@ import{a as d,S as p,i as l}from"./assets/vendor-D8kWkXeg.js";(function(){const 
 
 
          </ul>
-      </li>`}const u=document.querySelector(".loader");function h(){c.innerHTML=""}function L(){u.classList.remove("hidden")}function b(){u.classList.add("hidden")}const n=document.querySelector(".form");n.addEventListener("submit",t=>{t.preventDefault();const i=new FormData(n).get("search-text");i.trim()&&(h(),L(),f(i).then(a=>{a.length===0&&l.error({message:"Sorry, there are no images matching your search query. Please try again!",position:"topRight"}),g(a),n.reset()}).catch(a=>{l.error({message:`Error: ${a}`,position:"topRight"})}).finally(()=>{b()}))});
+      </li>`}const u=document.querySelector(".loader");function h(){c.innerHTML=""}function L(){u.classList.remove("hidden")}function b(){u.classList.add("hidden")}const n=document.querySelector(".form");n.addEventListener("submit",t=>{t.preventDefault();const i=new FormData(n).get("search-text");i.trim()&&(h(),L(),f(i).then(a=>{if(a.length===0){l.error({message:"Sorry, there are no images matching your search query. Please try again!",position:"topRight"});return}g(a),n.reset()}).catch(a=>{l.error({message:`Error: ${a}`,position:"topRight"})}).finally(()=>{b()}))});
 //# sourceMappingURL=index.js.map
