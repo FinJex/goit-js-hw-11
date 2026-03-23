@@ -1,13 +1,14 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 const gallery = document.querySelector(`.gallery`);
-
-export function createGallery(images) {
-gallery.insertAdjacentHTML(`beforeend`, images.map(itemTemplate).join(''));
-new SimpleLightbox('.gallery a', {
+const simple = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 }); 
+
+export function createGallery(images) {
+gallery.insertAdjacentHTML(`beforeend`, images.map(itemTemplate).join(''));
+simple.refresh();
 }
  
 function itemTemplate(item) {

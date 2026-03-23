@@ -26,7 +26,10 @@ form.addEventListener(`submit`, (e) => {
       form.reset();
     })
   .catch(err => {
-
+    iziToast.error({
+      message: `Error: ${err}`,
+      position: "topRight"
+    });
   })
   .finally(() => {
     hideLoader(); 
